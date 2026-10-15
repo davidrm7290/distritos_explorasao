@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MADRID DISTRICT CHALLENGE: BRAINROT & RANDOM LORE 4000 💀🔥</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Leaflet CSS & JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Impact&family=Press+Start+2P&family=Outfit:wght@800;900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: 'Comic Neue', 'Comic Sans MS', cursive, sans-serif;
+            user-select: none;
+        }
+
+        .font-impact { font-family: 'Impact', sans-serif !important; }
+        .font-pixel { font-family: 'Press Start 2P', monospace !important; }
+
+        /* Deep Fried CSS Filters */
+        .deep-fried-mode {
+            filter: contrast(350%) brightness(110%) saturate(600%) hue-rotate(20deg) !important;
+        }
+
+        /* Matrix Cyberpunk Mode */
+        .matrix-mode {
+            filter: invert(1) hue-rotate(90deg) contrast(300%) !important;
+            background-color: #001100 !important;
+        }
+
+        .rumble-shake {
+            animation: shake 0.15s cubic-bezier(.36,.07,.19,.97) both infinite;
+        }
+
+        @keyframes shake {
+            10%, 90% { transform: translate3d(-3px, 0, 0) rotate(-2deg); }
+            20%, 80% { transform: translate3d(5px, 0, 0) rotate(3deg); }
+            30%, 50%, 70% { transform: translate3d(-7px, 0, 0) rotate(-3deg); }
+            40%, 60% { transform: translate3d(7px, 0, 0) rotate(2deg); }
+        }
+
+        .rainbow-text {
+            background: linear-gradient(90deg, #ff0055, #ffcc00, #00ffcc, #ff00ff, #ff0055);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rainbow-anim 2s linear infinite;
+        }
+
+        @keyframes rainbow-anim {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Floating Meme Stickers */
+        .floating-sticker {
+            position: fixed;
+            pointer-events: none;
+            z-index: 999;
+            animation: float-meme 4s infinite ease-in-out alternate;
+        }
+
+        @keyframes float-meme {
+            0% { transform: translateY(0px) rotate(0deg) scale(1); }
+            50% { transform: translateY(-30px) rotate(20deg) scale(1.2); }
+            100% { transform: translateY(15px) rotate(-20deg) scale(0.8); }
+        }
+
+        /* Hitmarker */
+        .hitmarker {
+            position: fixed;
+            width: 50px;
+            height: 50px;
+            pointer-events: none;
+            z-index: 10000;
+            transform: translate(-50%, -50%);
+            animation: hitmarker-anim 0.3s forwards ease-out;
+        }
+
+        @keyframes hitmarker-anim {
+            0% { opacity: 1; transform: translate(-50%, -50%) scale(2) rotate(0deg); }
+            100% { opacity: 0; transform: translate(-50%, -50%) scale(0.6) rotate(90deg); }
+        }
+
+        /* Custom Dark High-Contrast Leaflet Tiles */
+        .leaflet-tile {
+            filter: brightness(0.5) invert(1) contrast(3) hue-rotate(200deg) !important;
+        }
+
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(#ff0055, #00ffff);
+            border-radius: 5px;
+        }
+
+        .star-rating i {
+            cursor: pointer;
+            transition: transform 0.2s, color 0.2s;
+        }
+        .star-rating i:hover { transform: scale(1.4) rotate(15deg); }
+    </style>
+</head>
+<body id="appBody" class="bg-black text-yellow-300 min-h-screen flex flex-col overflow-x-hidden selection:bg-pink-600 selection:text-white">
+
+    <!-- FLOATING MEME STICKERS -->
+    <div class="floating-sticker top-24 left-6 text-7xl hidden lg:block">🐱</div>
+    <div class="floating-sticker bottom-12 right-8 text-7xl hidden lg:block" style="animation-delay: -2s;">🍺</div>
+    <div class="floating-sticker top-1/2 right-12 text-6xl hidden xl:block" style="animation-delay: -1s;">🥪</div>
+
+    <!-- MAIN HEADER -->
+    <header class="bg-gradient-to-r from-purple-950 via-red-900 to-yellow-600 border-b-8 border-cyan-400 p-4 shadow-[0_0_30px_#00ffff] relative z-30 flex-shrink-0">
+        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
+            
+            <div class="flex items-center gap-3">
+                <div class="text-5xl animate-bounce">👑</div>
+                <div>
+                    <h1 class="text-2xl sm:text-4xl font-impact tracking-wider text-white rainbow-text drop-shadow-[0_4px_0_#000]">
+                        MADRID CHALLENGE: BRAINROT 4000
+                    </h1>
+                    <p class="text-xs sm:text-sm text-cyan-300 font-extrabold bg-black/80 px-3 py-0.5 rounded-full border border-yellow-400 inline-block tracking-widest mt-1">
+                        🔥 EL JUEGO DEFINITIVO DE EXPLORAR Y CONQUISTAR MADRID 🗿
+                    </p>
+                </div>
+            </div>
+
+            <!-- AUDIO & CHAOS SOUNDBAR -->
+            <div class="flex flex-wrap items-center gap-2">
+                <button onclick="playSFX('airhorn')" class="bg-gradient-to-r from-red-600 to-yellow-500 hover:scale-105 active:scale-95 text-white font-impact px-2.5 py-1.5 rounded-xl text-xs border-2 border-white shadow-[0_0_15px_#ff0000]">
+                    📢 AIRHORN
+                </button>
+                <button onclick="playSFX('vine')" class="bg-gradient-to-r from-purple-600 to-pink-500 hover:scale-105 active:scale-95 text-white font-impact px-2.5 py-1.5 rounded-xl text-xs border-2 border-white shadow-[0_0_15px_#ff00ff]">
+                    🗿 VINE BOOM
+                </button>
+                <button onclick="playSFX('drama')" class="bg-gradient-to-r from-amber-600 to-red-600 hover:scale-105 active:scale-95 text-white font-impact px-2.5 py-1.5 rounded-xl text-xs border-2 border-white">
+                    😱 DRAMA
+                </button>
+                <button onclick="toggleBackgroundBeat()" id="beatBtn" class="bg-emerald-600 hover:bg-emerald-500 text-white font-impact px-2.5 py-1.5 rounded-xl text-xs border-2 border-white animate-pulse">
+                    🎶 BEAT 8-BIT: OFF
+                </button>
+                <button id="deepFriedBtn" onclick="toggleDeepFried()" class="bg-yellow-400 hover:bg-yellow-300 text-black font-impact px-2.5 py-1.5 rounded-xl text-xs border-2 border-black">
+                    🍳 DEEP FRIED
+                </button>
+                <button onclick="toggleMatrixMode()" class="bg-green-500 hover:bg-green-400 text-black font-impact px-2.5 py-1.5 rounded-xl text-xs border-2 border-black">
+                    🟢 MATRIX
+                </button>
+                <button onclick="triggerAyusoTeleport()" class="bg-red-600 hover:bg-red-500 text-white font-impact px-2.5 py-1.5 rounded-xl text-xs border-2 border-yellow-300 animate-bounce">
+                    ⚡ MODO AYUSO
+                </button>
+                <button onclick="openDataModal()" class="bg-zinc-800 hover:bg-zinc-700 text-yellow-300 font-bold px-2.5 py-1.5 rounded-xl text-xs border border-yellow-500">
+                    💾 DATOS
+                </button>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT GRID -->
+    <div class="flex-1 max-w-7xl w-full mx-auto p-3 sm:p-5 grid grid-cols-1 lg:grid-cols-12 gap-5">
+
+        <!-- LEFT PANEL: DASHBOARD, RANDOMIZERS & GAMES (4 COLS) -->
+        <aside class="lg:col-span-4 flex flex-col gap-5">
+
+            <!-- STATS DASHBOARD -->
+            <div class="bg-zinc-950 border-4 border-pink-500 rounded-3xl p-5 shadow-[0_0_25px_#ff00ff] relative overflow-hidden">
+                <div class="flex justify-between items-center border-b-2 border-pink-500 pb-2 mb-3">
+                    <h2 class="text-xl font-impact text-pink-400 flex items-center gap-2">
+                        📊 STATS DE GATO
+                    </h2>
+                    <span id="rankBadge" class="text-xs bg-yellow-400 text-black px-2 py-0.5 font-impact rounded border border-black">NOOB M-30</span>
+                </div>
+
+                <div class="space-y-3">
+                    <div class="space-y-1">
+                        <div class="flex justify-between text-xs font-bold text-cyan-300">
+                            <span>🐱 Nivel Gato Madrileño:</span>
+                            <span id="statProgressText">0 / 21 (0%)</span>
+                        </div>
+                        <div class="w-full h-4 bg-zinc-800 rounded-full border-2 border-cyan-400 overflow-hidden">
+                            <div id="statProgressBar" class="h-full bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-400 w-0 transition-all duration-500"></div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2 text-center">
+                        <div class="bg-zinc-900 p-2.5 rounded-2xl border-2 border-yellow-400">
+                            <span class="text-[10px] text-yellow-300 font-bold block">🥖 Bocatas Calamares</span>
+                            <span id="statBocatas" class="text-xl font-impact text-white">0</span>
+                        </div>
+                        <div class="bg-zinc-900 p-2.5 rounded-2xl border-2 border-emerald-400">
+                            <span class="text-[10px] text-emerald-400 font-bold block">🍺 Cañas Empinadas</span>
+                            <span id="statCanas" class="text-xl font-impact text-white">0</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-zinc-900 p-2.5 rounded-2xl border-2 border-purple-500 text-center">
+                        <span class="text-[10px] text-purple-300 font-bold block">🏆 Título Actual</span>
+                        <span id="statTitle" class="text-sm font-impact text-yellow-300 rainbow-text">TURISTA DE LA M-30</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GENERADOR DE EXCUSAS MADRILEÑAS -->
+            <div class="bg-gradient-to-br from-red-950 via-zinc-900 to-black border-4 border-yellow-400 rounded-3xl p-4 shadow-[0_0_20px_#ffff00]">
+                <h3 class="text-lg font-impact text-yellow-300 mb-2 flex items-center justify-between">
+                    <span>🗣️ EXCUSA MADRILEÑA DEL DÍA</span>
+                    <button onclick="generateExcuse()" class="text-xs bg-yellow-400 hover:bg-yellow-300 text-black font-impact px-2 py-0.5 rounded">OTRA 🔄</button>
+                </h3>
+                <div id="excuseBox" class="bg-black/80 border-2 border-dashed border-red-500 p-3 rounded-xl text-xs text-cyan-200 font-bold italic text-center">
+                    "Hermano no voy a Vallecas que no me entra la tarjeta del metro en la zona B1"
+                </div>
+            </div>
+
+            <!-- PREDICCIÓN DEL FUTURO URBANO -->
+            <div class="bg-gradient-to-br from-purple-950 via-zinc-900 to-black border-4 border-cyan-400 rounded-3xl p-4 shadow-[0_0_20px_#00ffff]">
+                <h3 class="text-lg font-impact text-cyan-300 mb-2 flex items-center justify-between">
+                    <span>🔮 FUTURO EN MADRID</span>
+                    <button onclick="predictFuture()" class="text-xs bg-cyan-400 hover:bg-cyan-300 text-black font-impact px-2 py-0.5 rounded">LEER 🔮</button>
+                </h3>
+                <div id="futureBox" class="bg-black/80 border-2 border-dashed border-purple-500 p-3 rounded-xl text-xs text-yellow-200 font-bold text-center">
+                    Haz clic en LEER para predecir qué te pasará hoy en la capital...
+                </div>
+            </div>
+
+            <!-- RULETA CAÓTICA -->
+            <div class="bg-gradient-to-br from-purple-950 via-zinc-900 to-black border-4 border-pink-500 rounded-3xl p-4 text-center">
+                <h2 class="text-lg font-impact text-pink-400 mb-2">🎰 RULETA DE BARRIOS</h2>
+                <div id="rouletteDisplay" class="bg-black border-2 border-dashed border-pink-400 p-3 rounded-xl mb-3 min-h-[55px] flex items-center justify-center">
+                    <span class="text-xs font-impact text-pink-300">¡SORTEA TU DESTINO!</span>
+                </div>
+                <button onclick="spinRoulette()" class="w-full bg-gradient-to-r from-amber-500 to-pink-500 hover:scale-105 active:scale-95 text-white font-impact text-sm py-2 rounded-xl border border-white">
+                    🎲 GIRAR RULETA
+                </button>
+            </div>
+
+            <!-- MINIJUEGO: ESQUIVA AL REVISOR -->
+            <div class="bg-zinc-950 border-4 border-emerald-500 rounded-3xl p-4 shadow-[0_0_20px_#00ff00] text-center">
+                <h3 class="text-lg font-impact text-emerald-400 mb-1">🎮 MINI JUEGO: METRO ESCAPE</h3>
+                <p class="text-[10px] text-gray-300 mb-2">Recoge bocatas 🥪 y esquiva al Revisor 👮‍♂️</p>
+                
+                <div class="relative w-full h-36 bg-black rounded-xl overflow-hidden border-2 border-emerald-400 mb-2">
+                    <canvas id="gameCanvas" class="w-full h-full"></canvas>
+                    <div id="gameStartOverlay" class="absolute inset-0 bg-black/80 flex flex-col items-center justify-center gap-2">
+                        <span class="text-xs font-impact text-yellow-300">¿ESTÁS LISTO?</span>
+                        <button onclick="startMetroGame()" class="bg-emerald-500 hover:bg-emerald-400 text-black font-impact text-xs px-3 py-1 rounded-lg">JUGAR 🚀</button>
+                    </div>
+                </div>
+                <div class="flex justify-between text-[11px] font-bold text-yellow-300 px-2">
+                    <span>PUNTOS: <span id="gameScore">0</span></span>
+                    <span>RECORD: <span id="gameHighScore">0</span></span>
+                </div>
+            </div>
+
+            <!-- LOGROS -->
+            <div class="bg-zinc-950 border-4 border-emerald-500 rounded-3xl p-4 shadow-[0_0_20px_#00ff00]">
+                <h3 class="text-base font-impact text-emerald-400 mb-2 flex items-center justify-between">
+                    <span>🏆 LOGROS</span>
+                    <span id="achievementsCount" class="text-xs bg-emerald-500 text-black px-2 py-0.5 font-bold rounded">0/4</span>
+                </h3>
+                <div id="achievementsContainer" class="space-y-2 max-h-40 overflow-y-auto pr-1"></div>
+            </div>
+
+        </aside>
+
+        <!-- RIGHT PANEL: MAP & DISTRICT LORE DETAILS (8 COLS) -->
+        <main class="lg:col-span-8 flex flex-col gap-5">
+
+            <!-- MAP CONTAINER -->
+            <div class="relative bg-zinc-950 border-8 border-cyan-400 rounded-3xl overflow-hidden shadow-[0_0_35px_#00ffff] h-[400px] lg:h-[460px]" id="mapWrapper">
+                <div id="map" class="w-full h-full"></div>
+
+                <div class="absolute bottom-4 left-4 bg-black/90 border-2 border-yellow-400 p-2.5 rounded-2xl z-[1000] text-[11px] space-y-1">
+                    <div class="font-impact text-yellow-300 mb-1">ESTADO DEL TERRITORIO</div>
+                    <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-gray-500 border border-white"></span> SIN PISAR 💀</div>
+                    <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-amber-400 border border-white"></span> EN PLANIFICACIÓN ⏳</div>
+                    <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-emerald-400 border border-white"></span> CONQUISTADO 👑</div>
+                </div>
+            </div>
+
+            <!-- RANDOM LORE & TRIBUS URBANAS DEL DISTRITO SELECCIONADO -->
+            <div class="bg-zinc-950 border-4 border-yellow-400 rounded-3xl p-4 shadow-[0_0_25px_#ffff00]">
+                <div class="flex justify-between items-center border-b-2 border-zinc-800 pb-2 mb-3">
+                    <h3 class="text-lg font-impact text-yellow-300 flex items-center gap-2">
+                        🕵️ LORE & TRIBUS URBANAS: <span id="loreDistrictTitle" class="text-cyan-400 underline">CENTRO</span>
+                    </h3>
+                    <span id="loreDistrictTag" class="text-xs bg-pink-600 text-white font-impact px-2 py-0.5 rounded">ZONA CERO</span>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center text-xs">
+                    <div class="bg-zinc-900 p-2 rounded-xl border border-yellow-500">
+                        <span class="text-[10px] text-gray-400 font-bold block">🦺 Cayetanos vs Canis</span>
+                        <span id="statCayetanos" class="font-impact text-sm text-yellow-300">50% / 50%</span>
+                    </div>
+                    <div class="bg-zinc-900 p-2 rounded-xl border border-pink-500">
+                        <span class="text-[10px] text-gray-400 font-bold block">📹 Streamers sueltos</span>
+                        <span id="statStreamers" class="font-impact text-sm text-pink-400">99% Probabilidad</span>
+                    </div>
+                    <div class="bg-zinc-900 p-2 rounded-xl border border-cyan-500">
+                        <span class="text-[10px] text-gray-400 font-bold block">🥖 Tapa Suprema</span>
+                        <span id="statTapa" class="font-impact text-sm text-cyan-300">Bocata Calamares</span>
+                    </div>
+                    <div class="bg-zinc-900 p-2 rounded-xl border border-purple-500">
+                        <span class="text-[10px] text-gray-400 font-bold block">⚔️ Distrito Némesis</span>
+                        <span id="statNemesis" class="font-impact text-sm text-purple-400">Salamanca</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DISTRICT LIST AND EDITOR PANEL -->
+            <div class="bg-zinc-950 border-4 border-red-500 rounded-3xl p-5 shadow-[0_0_25px_#ff0000]">
+                
+                <div class="flex flex-wrap items-center justify-between gap-3 border-b-2 border-zinc-800 pb-3 mb-4">
+                    <div>
+                        <span class="text-xs text-red-400 font-bold uppercase tracking-widest">EXPEDICIÓN ACTIVA</span>
+                        <select id="districtSelect" onchange="onDistrictSelectChange()" class="bg-zinc-900 border-2 border-yellow-400 text-yellow-300 font-impact text-xl px-4 py-1.5 rounded-xl focus:outline-none w-full sm:w-auto">
+                            <!-- Populated with JS -->
+                        </select>
+                    </div>
+
+                    <div class="flex gap-2">
+                        <button onclick="setDistrictStatus('unvisited')" id="btnStatusUnvisited" class="px-3 py-1.5 rounded-xl border-2 border-zinc-700 text-xs font-bold text-gray-400">
+                            💀 SIN PISAR
+                        </button>
+                        <button onclick="setDistrictStatus('planned')" id="btnStatusPlanned" class="px-3 py-1.5 rounded-xl border-2 border-amber-500 text-xs font-bold text-amber-400">
+                            ⏳ EN PLAN
+                        </button>
+                        <button onclick="setDistrictStatus('completed')" id="btnStatusCompleted" class="px-3 py-1.5 rounded-xl border-2 border-emerald-500 text-xs font-bold text-emerald-400">
+                            👑 CONQUISTADO
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CATEGORY RATINGS -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-4">
+                    <div class="bg-zinc-900 p-2.5 rounded-2xl border-2 border-amber-400">
+                        <span class="text-xs text-amber-300 font-bold block mb-1">🍺 Cañismo & Terracitas</span>
+                        <div class="star-rating text-amber-400 text-lg flex gap-1" data-cat="canismo">
+                            <i class="fa-regular fa-star" onclick="rateCategory('canismo', 1)"></i>
+                            <i class="fa-regular fa-star" onclick="rateCategory('canismo', 2)"></i>
+                            <i class="fa-regular fa-star" onclick="rateCategory('canismo', 3)"></i>
+                            <i class="fa-regular fa-star" onclick="rateCategory('canismo', 4)"></i>
+                            <i class="fa-regular fa-star" onclick="rateCategory('canismo', 5)"></i>
+                        </div>
+                    </div>
+
+                    <div class="bg-zinc-900 p-2.5 rounded-2xl border-2 border-pink-500">
+                        <span class="text-xs text-pink-400 font-bold block mb-1">🥖 Bocata / Munchies</span>
+                        <div class="star-rating text-pink-400 text-lg flex gap-1" data-cat="bocata">
+                            <i class="fa-regular fa-star" onclick="rateCategory('bocata', 1)"></i>
+                            <i class="fa-regular fa-star" onclick="rateCategory('bocata', 2)"></i>
+                            <i class="fa-regular fa-star" onclick="rateCategory('bocata', 3)"></i>
+                            <i class="fa-regular fa-star" onclick="rateCategory('bocata', 4)"></i>
+                            <i class="fa-regular fa-star" onclick="rateCategory('bocata', 5)"></i>
+                        </div>
+                    </div>
+
+                    <div class="bg-zinc-900 p-2.5 rounded-2xl border-2 border-cyan-400">
+                        <span class="text-xs text-cyan-300 font-bold block mb-1">🔊 Vibra / Drip</span>
+                        <div class="star-rating text-cyan-300 text-lg flex gap-1" data-cat="vibra">
+                            <i class="fa-regular fa-star" onclick="rateCategory('vibra', 1)"></i>
+                            <i class="fa-regular fa-star" onclick="rateCategory('vibra', 2)"></i>
+                            <i class="fa-regular fa-star" onclick="rateCategory('vibra', 3)"></i>
+                            <i class="fa-regular fa-star" onclick="rateCategory('vibra', 4)"></i>
+                            <i class="fa-regular fa-star" onclick="rateCategory('vibra', 5)"></i>
+                        </div>
+                    </div>
+
+                    <div class="bg-zinc-900 p-2.5 rounded-2xl border-2 border-purple-500">
+                        <span class="text-xs text-purple-300 font-bold block mb-1">🏛️ Monumentos / Lore</span>
+                        <div class="star-rating text-purple-400 text-lg flex gap-1" data-cat="lore">
+                            <i class="fa-regular fa-star" onclick="rateCategory('lore', 1)"></i>
+                            <i class="fa-regular fa-star" onclick="rateCategory('lore', 2)"></i>
+                            <i class="fa-regular fa-star" onclick="rateCategory('lore', 3)"></i>
+                            <i class="fa-regular fa-star" onclick="rateCategory('lore', 4)"></i>
+                            <i class="fa-regular fa-star" onclick="rateCategory('lore', 5)"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FORMULARIO RESEÑA -->
+                <div class="space-y-3">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-bold text-yellow-400 mb-1">📅 FECHA DE EXPEDICIÓN</label>
+                            <input type="date" id="inputDate" onchange="saveCurrentDistrict()" class="w-full bg-zinc-900 border-2 border-zinc-700 rounded-xl p-2 text-xs text-yellow-300 focus:outline-none focus:border-yellow-400">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-yellow-400 mb-1">📍 LUGAR SECRETO DESCUBIERTO</label>
+                            <input type="text" id="inputSecret" onchange="saveCurrentDistrict()" placeholder="Ej: Bar con bravas legendarias..." class="w-full bg-zinc-900 border-2 border-zinc-700 rounded-xl p-2 text-xs text-yellow-300 focus:outline-none focus:border-yellow-400">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-yellow-400 mb-1">📝 RESEÑA Y LEYENDA DEL BARRIO</label>
+                        <textarea id="inputNotes" onchange="saveCurrentDistrict()" rows="2" placeholder="¿Qué pasó? ¿Cuántas cañas cayeron?" class="w-full bg-zinc-900 border-2 border-zinc-700 rounded-xl p-2 text-xs text-yellow-300 focus:outline-none focus:border-yellow-400 resize-none"></textarea>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <!-- MODAL DATOS -->
+    <div id="dataModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-[2000] hidden flex items-center justify-center p-4">
+        <div class="bg-zinc-950 border-4 border-yellow-400 w-full max-w-md rounded-3xl p-6 space-y-4 text-center">
+            <h3 class="text-2xl font-impact text-yellow-300">💾 RESPALDO DE DATOS MLG</h3>
+            <p class="text-xs text-gray-300">Guarda vuestro progreso para compartirlo o restaurarlo en otro dispositivo.</p>
+
+            <div class="space-y-2 pt-2">
+                <button onclick="exportDataJSON()" class="w-full py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-impact rounded-2xl border-2 border-white">
+                    📥 EXPORTAR PROGRESS.JSON
+                </button>
+                <label class="w-full py-3 bg-gradient-to-r from-purple-500 to-pink-600 text-white font-impact rounded-2xl border-2 border-white block cursor-pointer">
+                    📤 IMPORTAR PROGRESS.JSON
+                    <input type="file" id="importFileInput" onchange="importDataJSON(event)" class="hidden" accept=".json">
+                </label>
+            </div>
+
+            <div class="border-t border-zinc-800 pt-3">
+                <button onclick="resetAllData()" class="w-full py-2 bg-red-600/20 hover:bg-red-600 text-red-400 hover:text-white font-bold text-xs rounded-xl border border-red-500 transition">
+                    🚨 DEEP-FRIED RESET TOTAL
+                </button>
+            </div>
+
+            <button onclick="closeDataModal()" class="text-xs text-gray-400 underline">CERRAR</button>
+        </div>
+    </div>
+
+    <!-- WEB AUDIO SYNTHESIZER SCRIPT -->
+    <script>
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        let audioCtx = null;
+        let beatOsc = null, beatGain = null, beatInterval = null;
+        let isBeatPlaying = false;
+
+        function initAudio() {
+            if (!audioCtx) audioCtx = new AudioContext();
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+        }
+
+        function playSFX(type) {
+            initAudio();
+            if (!audioCtx) return;
+            const now = audioCtx.currentTime;
+
+            if (type === 'airhorn') {
+                const notes = [466.16, 466.16, 466.16, 622.25];
+                const times = [0, 0.12, 0.24, 0.36];
+                notes.forEach((freq, idx) => {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = 'sawtooth';
+                    osc.frequency.setValueAtTime(freq, now + times[idx]);
+                    gain.gain.setValueAtTime(0.25, now + times[idx]);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + times[idx] + 0.1);
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.start(now + times[idx]);
+                    osc.stop(now + times[idx] + 0.11);
+                });
+            } else if (type === 'vine') {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(150, now);
+                osc.frequency.exponentialRampToValueAtTime(25, now + 0.4);
+                gain.gain.setValueAtTime(0.8, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.45);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start(now);
+                osc.stop(now + 0.45);
+            } else if (type === 'drama') {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(100, now);
+                osc.frequency.linearRampToValueAtTime(800, now + 0.6);
+                gain.gain.setValueAtTime(0.5, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.7);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start(now);
+                osc.stop(now + 0.7);
+            } else if (type === 'win') {
+                const notes = [261.63, 329.63, 392.00, 523.25];
+                notes.forEach((freq, idx) => {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(freq, now + (idx * 0.1));
+                    gain.gain.setValueAtTime(0.3, now + (idx * 0.1));
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + (idx * 0.1) + 0.25);
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.start(now + (idx * 0.1));
+                    osc.stop(now + (idx * 0.1) + 0.25);
+                });
+            } else if (type === 'hit') {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'square';
+                osc.frequency.setValueAtTime(300, now);
+                osc.frequency.exponentialRampToValueAtTime(50, now + 0.08);
+                gain.gain.setValueAtTime(0.4, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.08);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start(now);
+                osc.stop(now + 0.08);
+            }
+        }
+
+        function toggleBackgroundBeat() {
+            initAudio();
+            const btn = document.getElementById('beatBtn');
+            if (isBeatPlaying) {
+                clearInterval(beatInterval);
+                isBeatPlaying = false;
+                btn.innerText = "🎶 BEAT 8-BIT: OFF";
+                btn.classList.remove('bg-red-600');
+                btn.classList.add('bg-emerald-600');
+            } else {
+                isBeatPlaying = true;
+                btn.innerText = "🎶 BEAT 8-BIT: ON 🔥";
+                btn.classList.remove('bg-emerald-600');
+                btn.classList.add('bg-red-600');
+
+                let step = 0;
+                const scale = [130.81, 146.83, 164.81, 196.00, 220.00];
+                beatInterval = setInterval(() => {
+                    if (!isBeatPlaying) return;
+                    const now = audioCtx.currentTime;
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = 'square';
+                    const freq = scale[step % scale.length];
+                    osc.frequency.setValueAtTime(freq, now);
+                    gain.gain.setValueAtTime(0.08, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.start(now);
+                    osc.stop(now + 0.13);
+                    step++;
+                }, 160);
+            }
+        }
+
+        function triggerScreenShake() {
+            document.body.classList.add('rumble-shake');
+            setTimeout(() => document.body.classList.remove('rumble-shake'), 400);
+        }
+
+        function toggleDeepFried() {
+            document.body.classList.toggle('deep-fried-mode');
+            playSFX('vine');
+            triggerScreenShake();
+        }
+
+        function toggleMatrixMode() {
+            document.body.classList.toggle('matrix-mode');
+            playSFX('drama');
+            triggerScreenShake();
+        }
+
+        function triggerAyusoTeleport() {
+            playSFX('airhorn');
+            triggerScreenShake();
+            const el = document.createElement('div');
+            el.className = 'fixed text-8xl z-[9999] pointer-events-none transition-all duration-1000';
+            el.innerText = Math.random() > 0.5 ? '🚇' : '👑';
+            el.style.left = Math.random() * 80 + 'vw';
+            el.style.top = Math.random() * 80 + 'vh';
+            document.body.appendChild(el);
+            setTimeout(() => {
+                el.style.transform = 'scale(3) rotate(360deg)';
+                el.style.opacity = '0';
+            }, 50);
+            setTimeout(() => el.remove(), 1050);
+        }
+
+        // Hitmarker Click Listener
+        document.addEventListener('click', (e) => {
+            const hit = document.createElement('div');
+            hit.className = 'hitmarker';
+            hit.style.left = e.clientX + 'px';
+            hit.style.top = e.clientY + 'px';
+            hit.innerHTML = `<svg viewBox="0 0 100 100" class="w-full h-full"><path d="M10 10 L30 30 M90 10 L70 30 M10 90 L30 70 M90 90 L70 70" stroke="red" stroke-width="12"/></svg>`;
+            document.body.appendChild(hit);
+            setTimeout(() => hit.remove(), 300);
+        });
+    </script>
+
+    <!-- DISTRICT DATA & APP LOGIC -->
+    <script>
+        const districtNames = {
+            1: "Centro", 2: "Arganzuela", 3: "Retiro", 4: "Salamanca", 5: "Chamartín",
+            6: "Tetuán", 7: "Chamberí", 8: "Fuencarral-El Pardo", 9: "Moncloa-Aravaca",
+            10: "Latina", 11: "Carabanchel", 12: "Usera", 13: "Puente de Vallecas",
+            14: "Moratalaz", 15: "Ciudad Lineal", 16: "Hortaleza", 17: "Villaverde",
+            18: "Villa de Vallecas", 19: "Vicálvaro", 20: "San Blas-Canillejas", 21: "Barajas"
+        };
+
+        const districtLore = {
+            1: { cayetanos: "30% / 70%", streamers: "99%", tapa: "Bocata Calamares", nemesis: "Salamanca", tag: "ZONA CERO" },
+            2: { cayetanos: "20% / 80%", streamers: "40%", tapa: "Oreja al ajillo", nemesis: "Chamartín", tag: "RÍO VIBES" },
+            3: { cayetanos: "70% / 30%", streamers: "20%", tapa: "Caña con Torreznos", nemesis: "Vallecas", tag: "PARQUE RETIRO" },
+            4: { cayetanos: "99% / 1%", streamers: "10%", tapa: "Gilda de 8 Euros", nemesis: "Usera", tag: "MADRID GOLD" },
+            5: { cayetanos: "85% / 15%", streamers: "35%", tapa: "Pincho de Tortilla", nemesis: "Carabanchel", tag: "BERNABÉU ZONE" },
+            6: { cayetanos: "40% / 60%", streamers: "50%", tapa: "Empanada Dominicana", nemesis: "Salamanca", tag: "MEZCLA TOTAL" },
+            7: { cayetanos: "80% / 20%", streamers: "15%", tapa: "Croqueta de Jamón", nemesis: "Villaverde", tag: "PINTAS & CAÑAS" },
+            8: { cayetanos: "60% / 40%", streamers: "5%", tapa: "Patatas Bravas", nemesis: "Centro", tag: "NORTE INFINITO" },
+            9: { cayetanos: "65% / 35%", streamers: "30%", tapa: "Tapa de Lomo", nemesis: "Moratalaz", tag: "UNIVERSITARIOS" },
+            10: { cayetanos: "10% / 90%", streamers: "25%", tapa: "Entresijos", nemesis: "Salamanca", tag: "BARRIO CASTIZO" },
+            11: { cayetanos: "5% / 95%", streamers: "15%", tapa: "Bocata de Gallinejas", nemesis: "Chamberí", tag: "LORE URBANO" },
+            12: { cayetanos: "2% / 98%", streamers: "60%", tapa: "Ramen / Dumplings", nemesis: "Retiro", tag: "CHINATOWN" },
+            13: { cayetanos: "1% / 99%", streamers: "20%", tapa: "Pincho Moruno", nemesis: "Salamanca", tag: "VALLEKAS PUNK" },
+            14: { cayetanos: "15% / 85%", streamers: "10%", tapa: "Lacón a la Gallega", nemesis: "Moncloa", tag: "BARRIO TRANQUILO" },
+            15: { cayetanos: "25% / 75%", streamers: "20%", tapa: "Tigres / Mejillones", nemesis: "Chamartín", tag: "LÍNEA INFINITA" },
+            16: { cayetanos: "50% / 50%", streamers: "15%", tapa: "Montadito de Chistorra", nemesis: "Usera", tag: "RESIDENCIAL" },
+            17: { cayetanos: "1% / 99%", streamers: "5%", tapa: "Kebab Supremo", nemesis: "Retiro", tag: "SUR PROFUNDO" },
+            18: { cayetanos: "5% / 95%", streamers: "10%", tapa: "Papas Arrugás", nemesis: "Salamanca", tag: "ENSANCHE ZONE" },
+            19: { cayetanos: "10% / 90%", streamers: "5%", tapa: "Torreznos de Soria", nemesis: "Chamberí", tag: "LORE HISTÓRICO" },
+            20: { cayetanos: "15% / 85%", streamers: "10%", tapa: "Calamares Campo", nemesis: "Centro", tag: "WANDA METROPOLITANO" },
+            21: { cayetanos: "40% / 60%", streamers: "80%", tapa: "Sándwich de Aeropuerto", nemesis: "Vallecas", tag: "FLY & GO" }
+        };
+
+        const excusesList = [
+            "Hermano no voy a Vallecas que no me entra la tarjeta del metro en la B1.",
+            "Pagar 8€ por un tercio en Chueca es mi verdadera pasión.",
+            "No puedo ir a Malasaña hoy porque me falta Drip en el outfit.",
+            "Llego 45 minutos tarde porque me perdí en el intercambiador de Moncloa.",
+            "He quedado en Sol pero hay tanto turco vendiendo rosas que me cobraron impuesto.",
+            "No cruzo la M-30 hoy que me da alergia el aire fuera del centro."
+        ];
+
+        const futuresList = [
+            "🔮 Hoy en Lavapiés perderás un Airpod pero encontrarás el mejor kebab de tu vida.",
+            "🔮 En Salamanca te confundirán con un Cayetano y te invitarán a un Gin Tonic gratis.",
+            "🔮 En el Metro de Sol presenciarás una batalla de rap entre dos mimos.",
+            "🔮 En Retiro te cagará una paloma real de Madrid, presagio de 100€ en Bizum.",
+            "🔮 En Vallecas aprenderás el verdadero significado del Cañismo Supremo."
+        ];
+
+        const m30Ids = [1, 2, 3, 4, 5, 6, 7];
+
+        let appData = { districts: {} };
+
+        Object.keys(districtNames).forEach(id => {
+            appData.districts[id] = {
+                status: 'unvisited',
+                ratings: { canismo: 0, bocata: 0, vibra: 0, lore: 0 },
+                date: '',
+                secret: '',
+                notes: ''
+            };
+        });
+
+        let currentDistrictId = 1;
+        let map, geojsonLayer;
+
+        function loadSavedData() {
+            const saved = localStorage.getItem('madrid_brainrot_4000');
+            if (saved) {
+                try { appData = JSON.parse(saved); } catch(e){}
+            }
+        }
+
+        function saveData() {
+            localStorage.setItem('madrid_brainrot_4000', JSON.stringify(appData));
+            updateUI();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadSavedData();
+            initSelectOptions();
+            initMap();
+            loadDistrictDataToForm(currentDistrictId);
+            updateUI();
+            initMetroGame();
+        });
+
+        function initSelectOptions() {
+            const select = document.getElementById('districtSelect');
+            select.innerHTML = '';
+            Object.keys(districtNames).forEach(id => {
+                const opt = document.createElement('option');
+                opt.value = id;
+                opt.innerText = `#${id} - ${districtNames[id]}`;
+                select.appendChild(opt);
+            });
+        }
+
+        function initMap() {
+            map = L.map('map', { zoomControl: false }).setView([40.4167, -3.7037], 11);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 18,
+                attribution: '© OpenStreetMap MLG'
+            }).addTo(map);
+
+            fetch('https://raw.githubusercontent.com/codeforamerica/click_that_hood/master/public/data/madrid-districts.geojson')
+                .then(res => res.json())
+                .then(data => {
+                    geojsonLayer = L.geoJSON(data, {
+                        style: styleFeature,
+                        onEachFeature: onEachFeature
+                    }).addTo(map);
+                });
+        }
+
+        function getStatusColor(status) {
+            if (status === 'completed') return '#10b981';
+            if (status === 'planned') return '#f59e0b';
+            return '#64748b';
+        }
+
+        function styleFeature(feature) {
+            const id = feature.properties.cartodb_id || feature.properties.id || getDistrictIdByName(feature.properties.name);
+            const status = appData.districts[id] ? appData.districts[id].status : 'unvisited';
+
+            return {
+                fillColor: getStatusColor(status),
+                weight: id == currentDistrictId ? 4 : 2,
+                opacity: 1,
+                color: id == currentDistrictId ? '#ffff00' : '#000000',
+                fillOpacity: status === 'unvisited' ? 0.35 : 0.75
+            };
+        }
+
+        function getDistrictIdByName(name) {
+            for (let id in districtNames) {
+                if (districtNames[id].toLowerCase() === name.toLowerCase()) return id;
+            }
+            return 1;
+        }
+
+        function onEachFeature(feature, layer) {
+            const name = feature.properties.name;
+            const id = feature.properties.cartodb_id || feature.properties.id || getDistrictIdByName(name);
+            feature.properties.calculated_id = id;
+
+            layer.bindTooltip(`<b>#${id} ${name}</b>`, {
+                permanent: false,
+                direction: 'center',
+                className: 'bg-black text-yellow-300 font-impact border-2 border-yellow-400 px-2 py-1'
+            });
+
+            layer.on({
+                click: () => {
+                    currentDistrictId = id;
+                    document.getElementById('districtSelect').value = id;
+                    loadDistrictDataToForm(id);
+                    playSFX('airhorn');
+                    updateUI();
+                }
+            });
+        }
+
+        function onDistrictSelectChange() {
+            currentDistrictId = document.getElementById('districtSelect').value;
+            loadDistrictDataToForm(currentDistrictId);
+            playSFX('vine');
+            updateUI();
+        }
+
+        function loadDistrictDataToForm(id) {
+            const data = appData.districts[id];
+            document.getElementById('inputDate').value = data.date || '';
+            document.getElementById('inputSecret').value = data.secret || '';
+            document.getElementById('inputNotes').value = data.notes || '';
+
+            updateStatusButtonsUI(data.status);
+            
+            ['canismo', 'bocata', 'vibra', 'lore'].forEach(cat => {
+                updateCategoryStarsUI(cat, data.ratings[cat]);
+            });
+
+            // Update District Random Lore
+            const lore = districtLore[id] || districtLore[1];
+            document.getElementById('loreDistrictTitle').innerText = districtNames[id].toUpperCase();
+            document.getElementById('loreDistrictTag').innerText = lore.tag;
+            document.getElementById('statCayetanos').innerText = lore.cayetanos;
+            document.getElementById('statStreamers').innerText = lore.streamers;
+            document.getElementById('statTapa').innerText = lore.tapa;
+            document.getElementById('statNemesis').innerText = lore.nemesis;
+
+            // Focus map
+            if (geojsonLayer) {
+                geojsonLayer.eachLayer(layer => {
+                    if (layer.feature.properties.calculated_id == id) {
+                        map.fitBounds(layer.getBounds(), { padding: [40, 40] });
+                    }
+                });
+            }
+        }
+
+        function setDistrictStatus(status) {
+            appData.districts[currentDistrictId].status = status;
+            saveData();
+            updateStatusButtonsUI(status);
+            playSFX('win');
+        }
+
+        function updateStatusButtonsUI(status) {
+            const btnU = document.getElementById('btnStatusUnvisited');
+            const btnP = document.getElementById('btnStatusPlanned');
+            const btnC = document.getElementById('btnStatusCompleted');
+
+            btnU.className = status === 'unvisited' ? 'px-3 py-1.5 rounded-xl border-2 border-white bg-gray-700 text-white font-bold text-xs' : 'px-3 py-1.5 rounded-xl border-2 border-zinc-700 text-xs font-bold text-gray-400';
+            btnP.className = status === 'planned' ? 'px-3 py-1.5 rounded-xl border-2 border-yellow-300 bg-amber-500 text-black font-bold text-xs' : 'px-3 py-1.5 rounded-xl border-2 border-amber-500 text-xs font-bold text-amber-400';
+            btnC.className = status === 'completed' ? 'px-3 py-1.5 rounded-xl border-2 border-white bg-emerald-500 text-black font-bold text-xs' : 'px-3 py-1.5 rounded-xl border-2 border-emerald-500 text-xs font-bold text-emerald-400';
+        }
+
+        function rateCategory(category, score) {
+            appData.districts[currentDistrictId].ratings[category] = score;
+            updateCategoryStarsUI(category, score);
+            saveData();
+            playSFX('airhorn');
+        }
+
+        function updateCategoryStarsUI(category, score) {
+            const container = document.querySelector(`.star-rating[data-cat="${category}"]`);
+            if (!container) return;
+            const stars = container.querySelectorAll('i');
+            stars.forEach((star, idx) => {
+                if (idx < score) {
+                    star.className = 'fa-solid fa-star text-yellow-400';
+                } else {
+                    star.className = 'fa-regular fa-star text-zinc-700';
+                }
+            });
+        }
+
+        function saveCurrentDistrict() {
+            const data = appData.districts[currentDistrictId];
+            data.date = document.getElementById('inputDate').value;
+            data.secret = document.getElementById('inputSecret').value;
+            data.notes = document.getElementById('inputNotes').value;
+            saveData();
+        }
+
+        function updateUI() {
+            if (geojsonLayer) {
+                geojsonLayer.eachLayer(layer => geojsonLayer.resetStyle(layer));
+            }
+
+            const completedCount = Object.values(appData.districts).filter(d => d.status === 'completed').length;
+            const percent = Math.round((completedCount / 21) * 100);
+
+            document.getElementById('statProgressText').innerText = `${completedCount} / 21 (${percent}%)`;
+            document.getElementById('statProgressBar').style.width = `${percent}%`;
+
+            let totalBocatas = 0;
+            let totalCanas = 0;
+            Object.values(appData.districts).forEach(d => {
+                if (d.status === 'completed') {
+                    totalBocatas += (d.ratings.bocata || 1) * 2;
+                    totalCanas += (d.ratings.canismo || 1) * 3;
+                }
+            });
+
+            document.getElementById('statBocatas').innerText = totalBocatas;
+            document.getElementById('statCanas').innerText = `${totalCanas} L`;
+
+            let title = "TURISTA DE LA M-30";
+            let rank = "NOOB M-30";
+            if (completedCount >= 5) { title = "EXPLORADOR DE TAPAS 🥪"; rank = "CHULAPO BRONCE"; }
+            if (completedCount >= 10) { title = "MAESTRO CANEDO 🍺"; rank = "GATO PLATA"; }
+            if (completedCount >= 15) { title = "LEYENDA DE GRAN VÍA 🌟"; rank = "GATO ORO"; }
+            if (completedCount === 21) { title = "REY SUPREMO DE MADRID 👑"; rank = "FINAL BOSS"; }
+
+            document.getElementById('statTitle').innerText = title;
+            document.getElementById('rankBadge').innerText = rank;
+
+            renderAchievements(completedCount);
+        }
+
+        function renderAchievements(completedCount) {
+            const achievements = [
+                { id: '1st', name: '1ER BOCATA 🥪', desc: 'Conquista tu primer distrito', unlocked: completedCount >= 1 },
+                { id: 'm30', name: 'M-30 OVERLORD 🛸', desc: 'Conquista Centro, Chamberí, Retiro, Salamanca, Chamartín, Tetuán y Arganzuela', unlocked: m30Ids.every(id => appData.districts[id].status === 'completed') },
+                { id: 'tapa', name: 'REY DEL TAPA 👑', desc: 'Pon 5/5 estrellas en Bocatas en algún distrito', unlocked: Object.values(appData.districts).some(d => d.ratings.bocata === 5) },
+                { id: 'all', name: 'EL FINAL BOSS 💀', desc: 'Conquista los 21 distritos de Madrid', unlocked: completedCount === 21 }
+            ];
+
+            const container = document.getElementById('achievementsContainer');
+            container.innerHTML = '';
+            let unlockedTotal = 0;
+
+            achievements.forEach(a => {
+                if (a.unlocked) unlockedTotal++;
+                const card = document.createElement('div');
+                card.className = `p-2 rounded-xl border flex items-center justify-between text-xs ${a.unlocked ? 'bg-emerald-950/80 border-emerald-400 text-emerald-300' : 'bg-zinc-900 border-zinc-800 text-zinc-600'}`;
+                card.innerHTML = `
+                    <div>
+                        <div class="font-impact">${a.name}</div>
+                        <div class="text-[9px]">${a.desc}</div>
+                    </div>
+                    <span>${a.unlocked ? '✅' : '🔒'}</span>
+                `;
+                container.appendChild(card);
+            });
+
+            document.getElementById('achievementsCount').innerText = `${unlockedTotal}/4`;
+        }
+
+        function generateExcuse() {
+            playSFX('vine');
+            const rand = excusesList[Math.floor(Math.random() * excusesList.length)];
+            document.getElementById('excuseBox').innerText = `"${rand}"`;
+        }
+
+        function predictFuture() {
+            playSFX('drama');
+            const rand = futuresList[Math.floor(Math.random() * futuresList.length)];
+            document.getElementById('futureBox').innerText = rand;
+        }
+
+        function spinRoulette() {
+            playSFX('airhorn');
+            const display = document.getElementById('rouletteDisplay');
+            let counter = 0;
+
+            const interval = setInterval(() => {
+                const randomId = Math.floor(Math.random() * 21) + 1;
+                display.innerHTML = `<span class="text-sm font-impact text-yellow-300 animate-pulse">🎲 #${randomId} ${districtNames[randomId]} 🎲</span>`;
+                counter++;
+
+                if (counter > 15) {
+                    clearInterval(interval);
+                    const finalId = Math.floor(Math.random() * 21) + 1;
+                    display.innerHTML = `<span class="text-sm font-impact rainbow-text">🎯 ¡DESTINO: ${districtNames[finalId]}!</span>`;
+                    currentDistrictId = finalId;
+                    document.getElementById('districtSelect').value = finalId;
+                    loadDistrictDataToForm(finalId);
+                    playSFX('win');
+                    confetti({ particleCount: 60, spread: 60, origin: { y: 0.6 } });
+                }
+            }, 80);
+        }
+
+        // --- MINI JUEGO: ESQUIVA AL REVISOR ---
+        let canvas, ctx;
+        let player = { x: 50, y: 50, size: 20 };
+        let food = { x: 100, y: 100, size: 15 };
+        let enemy = { x: 200, y: 100, size: 20, speed: 1.5 };
+        let gameScore = 0, highScore = 0;
+        let gameRunning = false;
+
+        function initMetroGame() {
+            canvas = document.getElementById('gameCanvas');
+            ctx = canvas.getContext('2d');
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+
+            canvas.addEventListener('mousemove', (e) => {
+                if (!gameRunning) return;
+                const rect = canvas.getBoundingClientRect();
+                player.x = e.clientX - rect.left;
+                player.y = e.clientY - rect.top;
+            });
+            canvas.addEventListener('touchmove', (e) => {
+                if (!gameRunning) return;
+                const rect = canvas.getBoundingClientRect();
+                player.x = e.touches[0].clientX - rect.left;
+                player.y = e.touches[0].clientY - rect.top;
+            });
+        }
+
+        function startMetroGame() {
+            document.getElementById('gameStartOverlay').classList.add('hidden');
+            gameScore = 0;
+            document.getElementById('gameScore').innerText = '0';
+            gameRunning = true;
+            spawnFood();
+            enemy.x = canvas.width - 30;
+            enemy.y = canvas.height - 30;
+            gameLoop();
+        }
+
+        function spawnFood() {
+            food.x = Math.random() * (canvas.width - 40) + 20;
+            food.y = Math.random() * (canvas.height - 40) + 20;
+        }
+
+        function gameLoop() {
+            if (!gameRunning) return;
+
+            ctx.fillStyle = '#000000';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Draw player
+            ctx.font = '18px sans-serif';
+            ctx.fillText('🐱', player.x - 10, player.y + 6);
+
+            // Draw food
+            ctx.fillText('🥪', food.x - 10, food.y + 6);
+
+            // Draw Enemy
+            ctx.fillText('👮‍♂️', enemy.x - 10, enemy.y + 6);
+
+            // Move enemy towards player
+            const dx = player.x - enemy.x;
+            const dy = player.y - enemy.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            enemy.x += (dx / dist) * enemy.speed;
+            enemy.y += (dy / dist) * enemy.speed;
+
+            // Check Food Collision
+            const foodDist = Math.sqrt((player.x - food.x)**2 + (player.y - food.y)**2);
+            if (foodDist < 20) {
+                gameScore += 10;
+                document.getElementById('gameScore').innerText = gameScore;
+                playSFX('hit');
+                spawnFood();
+                enemy.speed += 0.2;
+            }
+
+            // Check Enemy Collision
+            if (dist < 18) {
+                gameRunning = false;
+                playSFX('vine');
+                if (gameScore > highScore) {
+                    highScore = gameScore;
+                    document.getElementById('gameHighScore').innerText = highScore;
+                }
+                document.getElementById('gameStartOverlay').classList.remove('hidden');
+                return;
+            }
+
+            requestAnimationFrame(gameLoop);
+        }
+
+        // Data Management
+        function openDataModal() { document.getElementById('dataModal').classList.remove('hidden'); }
+        function closeDataModal() { document.getElementById('dataModal').classList.add('hidden'); }
+
+        function exportDataJSON() {
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(appData));
+            const a = document.createElement('a');
+            a.setAttribute("href", dataStr);
+            a.setAttribute("download", "madrid_brainrot_4000_progress.json");
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+        }
+
+        function importDataJSON(e) {
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                try {
+                    const parsed = JSON.parse(event.target.result);
+                    if (parsed && parsed.districts) {
+                        appData = parsed;
+                        saveData();
+                        closeDataModal();
+                        alert("¡DATOS CARGADOS CON ÉXITO! 🔥");
+                    }
+                } catch(err) { alert("Archivo JSON no válido."); }
+            };
+            reader.readAsText(e.target.files[0]);
+        }
+
+        function resetAllData() {
+            if (confirm("¿REINICIAR TODO EL PROGRESO DE MADRID?")) {
+                localStorage.removeItem('madrid_brainrot_4000');
+                location.reload();
+            }
+        }
+    </script>
+</body>
+</html>
